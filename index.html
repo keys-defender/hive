@@ -36,25 +36,26 @@
   <i>&nbsp; &nbsp; &nbsp; Note: open the DevTools Console and the Network tab to observe the anti-phishing behavior.</i>
   <br><br>
 
-  <div style="margin:10px auto;border:thin solid grey;border-radius: 20px;height:140px;padding:10px;width: 800px;">
-    <script>
-      const injectMaliciousIframe = () => {
-        const iframe = document.createElement('iframe');
-        iframe.src = 'https://justnetwork.scam/iframe.html';
-        document.body.appendChild(iframe);
-      };
-    </script>
-    <b>Iframe:</b><br>
-    <div style="float:right;margin: -20px 30px">
+  <div style="margin:10px auto;border:thin solid grey;border-radius: 20px;height:130px;padding:10px;width: 800px;">
+    <b>Phishing link:</b>
+    
+    <div style="float:right;margin: 10px 30px">
       <img
-        src="https://images.hive.blog/DQmUjjL77FNn92VgHwxXHPWBS1L3oWnsE4pakYb73iJ4i75/image.png"
-        width="300px"
-        style="border:thin solid grey"
+      src="https://images.hive.blog/DQmYeod4HKRenTmXYBZjqRNBgsHJ2BQPhA84KC2mwCteDMf/image.png"
+      width="300px"
+      style="border:thin solid grey"
       >
-      <br><i><sub>right click and select "open image in new tab" to zoom</sub></i>
     </div>
-    <button onclick="injectMaliciousIframe()" style="margin-top: 5px;">Add malicious iframe</button>
-    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Expected result on button click:
+    <br><br><a href="https://justnetwork.scam/claim.php">Claim your million dollar tokens</a>
+    <br><br> <center>
+     Expected result on click:</center>
+  </div>
+
+  <div style="margin:10px auto;border:thin solid grey;border-radius: 20px;height:90px;padding:10px;width: 800px;">
+    <div style="float: right;margin: 25px 20px;"><img src="https://justnetwork.scam" alt="jst"></div>
+    <b>Phishing image:</b><br><p style="margin-top: 5px;">(e.g. pic saying "visit justnetwork.scam to claim your tokens!")</p>
+    <textarea style="width: 280px; height: 20px;" disabled><img src="https://justnetwork.scam"></textarea>
+    &nbsp; &nbsp; &nbsp; &nbsp; Result on page load:
   </div>
 
   <div style="margin:10px auto;border:thin solid grey;border-radius: 20px;height:120px;padding:10px;width: 800px;">
@@ -76,29 +77,27 @@
         style="border:thin solid grey"
       >
     </div>
-
   </div>
 
-  <div style="margin:10px auto;border:thin solid grey;border-radius: 20px;height:90px;padding:10px;width: 800px;">
-    <div style="float: right;margin: 25px 20px;"><img src="https://justnetwork.scam" alt="jst"></div>
-    <b>Phishing image:</b><br><p style="margin-top: 5px;">(e.g. pic saying "visit justnetwork.scam to claim your tokens!")</p>
-    <textarea style="width: 280px; height: 20px;" disabled><img src="https://justnetwork.scam"></textarea>
-    &nbsp; &nbsp; &nbsp; &nbsp; Result on page load:
-  </div>
-
-  <div style="margin:10px auto;border:thin solid grey;border-radius: 20px;height:130px;padding:10px;width: 800px;">
-    <b>Phishing link:</b>
-    
-    <div style="float:right;margin: 10px 30px">
+  <div style="margin:10px auto;border:thin solid grey;border-radius: 20px;height:140px;padding:10px;width: 800px;">
+    <script>
+      const injectMaliciousIframe = () => {
+        const iframe = document.createElement('iframe');
+        iframe.src = 'https://justnetwork.scam/iframe.html';
+        document.body.appendChild(iframe);
+      };
+    </script>
+    <b>Iframe:</b><br>
+    <div style="float:right;margin: -20px 30px">
       <img
-      src="https://images.hive.blog/DQmYeod4HKRenTmXYBZjqRNBgsHJ2BQPhA84KC2mwCteDMf/image.png"
-      width="300px"
-      style="border:thin solid grey"
+        src="https://images.hive.blog/DQmUjjL77FNn92VgHwxXHPWBS1L3oWnsE4pakYb73iJ4i75/image.png"
+        width="300px"
+        style="border:thin solid grey"
       >
+      <br><i><sub>right click and select "open image in new tab" to zoom</sub></i>
     </div>
-    <br><br><a href="https://justnetwork.scam/claim.php">Claim your million dollar tokens</a>
-    <br><br> <center>
-     Expected result on click:</center>
+    <button onclick="injectMaliciousIframe()" style="margin-top: 5px;">Add malicious iframe</button>
+    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Expected result on button click:
   </div>
 
   <div style="margin:10px auto;border:thin solid grey;border-radius: 20px;height:90px;padding:10px;width: 800px;">
