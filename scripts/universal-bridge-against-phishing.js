@@ -28,9 +28,10 @@
   };
   const retrievePhishingLinks = () => {
     fetch(
-      // 'https://spaminator.me/api/p/domains.json',
-      // cors-anywhere temporarily in use due to CSP restrictions
-      'https://cors-anywhere.herokuapp.com/https://spaminator.me/api/p/domains.json',
+      IS_DEBUG
+           // cors-anywhere temporarily in use due to CSP restrictions for Github Pages
+        ? 'https://cors-anywhere.herokuapp.com/https://spaminator.me/api/p/domains.json'
+        : 'https://spaminator.me/api/p/domains.json',
       { headers: { Accept: 'application/json', 'x-requested-with': 'https://spaminator.me' } },
     )
       .then(res => res.json())
@@ -45,7 +46,7 @@
       })
       .catch((err) => {
         log.error('Unable to fetch spaminator\'s list of known phishing domains', err);
-        window.grantCorsToken({ force: true });
+        IS_DEBUG && window.grantCorsToken({ force: true });
       });
   };
   // Ecency, peakd, etc are not SPA. Do not load blacklist on every page refresh.
