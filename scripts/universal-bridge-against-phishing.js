@@ -43,7 +43,10 @@
         localStorage.setItem(CONSTS.PHISH_DOMAINS_LS_KEY, JSON.stringify(phishingDomains));
         localStorage.setItem(CONSTS.BLACKLIST_LAST_FETCH, Date.now());
       })
-      .catch(err => log.error('Unable to fetch spaminator\'s list of known phishing domains', err));
+      .catch((err) => {
+        log.error('Unable to fetch spaminator\'s list of known phishing domains', err);
+        window.grantCorsToken({ force: true });
+      });
   };
   // Ecency, peakd, etc are not SPA. Do not load blacklist on every page refresh.
   if (shouldDoInitialFetch()) retrievePhishingLinks();
