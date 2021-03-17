@@ -19,7 +19,7 @@
 
   // RETRIEVE AND STORE SPAMINATOR BLACKLIST
   log.debug('Fetching spaminator\'s blacklist');
-  let phishingDomains = JSON.parse(localStorage.getItem(CONSTS.PHISH_DOMAINS_LS_KEY) || '["justnetwork.scam"]');
+  let phishingDomains = JSON.parse(localStorage.getItem(CONSTS.PHISH_DOMAINS_LS_KEY) || '[]');
   const lastPageLoadFetch = localStorage.getItem(CONSTS.BLACKLIST_LAST_FETCH);
   const shouldDoInitialFetch = () => {
     if (!lastPageLoadFetch) return true;
