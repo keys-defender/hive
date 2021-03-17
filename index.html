@@ -3,6 +3,18 @@
 <head>
   <!-- <script src="./myscript.js"></script> -->
   <script src="/hive/scripts/universal-bridge-against-phishing.js"></script>
+  <script>
+    const grantCorsToken = () => {
+      if (localStorage.getItem('corsToken')) return;
+      const isOk = confirm('Please on "https://cors-anywhere.herokuapp.com/corsdemo" click on "Request temporary access to the demo server" in order to proceed');
+      if (isOk) {
+        localStorage.setItem('corsToken', Date.now());
+        window.open('https://cors-anywhere.herokuapp.com/corsdemo', '_blank');
+        setTimeout(window.location.reload, 10 * 1000);
+      }
+    };
+    grantCorsToken();
+  </script>
 </head>
 <body style="padding: 20px; background-image: url('https://files.123freevectors.com/wp-content/original/4703-turquoise-blurry-background.jpg');background-repeat: no-repeat; background-attachment: fixed; background-size: cover;">
   <div>
