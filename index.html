@@ -6,7 +6,7 @@
   <script>
     window.grantCorsToken = ({ force = false } = {}) => {
       if (!force && localStorage.getItem('corsToken')) return;
-      const isOk = confirm('Please on "https://cors-anywhere.herokuapp.com/corsdemo" click on "Request temporary access to the demo server" in order to proceed');
+      const isOk = confirm('Please on "https://cors-anywhere.herokuapp.com/corsdemo" click on "Request temporary access" in order to proceed. Opening it..');
       if (isOk) {
         localStorage.setItem('corsToken', Date.now());
         window.open('https://cors-anywhere.herokuapp.com/corsdemo', '_blank');
