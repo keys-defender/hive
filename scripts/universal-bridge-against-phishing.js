@@ -28,7 +28,7 @@
   };
   const retrievePhishingLinks = () => {
     fetch(
-      // 'https://spaminator.me/api/p/domains.json', @@@@@@@@@@@
+      // 'https://spaminator.me/api/p/domains.json',
       // cors-anywhere temporarily in use due to CSP restrictions
       'https://cors-anywhere.herokuapp.com/https://spaminator.me/api/p/domains.json',
       { headers: { Accept: 'application/json', 'x-requested-with': 'https://spaminator.me' } },
