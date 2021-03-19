@@ -66,7 +66,7 @@
   setInterval(conditionallyUpdatePhishList, CONSTS.PERIODIC_UPDATE_BLACKLIST);
   
   // Some JS breaks on hive.blog doing a history override. Using this to detect when to use a fallback.
-  const supportsHistoryOverride = () => {
+  const supportsAllOverrides = () => {
     // ReactJs
     if (!!window.React || !!document.querySelector('[data-reactroot], [data-reactid]'))
       return false;
@@ -78,7 +78,7 @@
   };
 
   // Fetch updated domains list on page view change (if not recently fetched)
-  if (supportsHistoryOverride()) {
+  if (supportsAllOverrides()) {
     const pushState = history.pushState;
     history.pushState = (...args) => { // <<< global override
       log.debug('History change (ps), checking age of blacklist');
@@ -208,7 +208,7 @@
     const originalGetAttribute = element.getAttribute.bind(element);
     // Override element "src" or "href" attribute getter and setter
     // Note: hive.blog uses definePropety too, cannot use
-    if (supportsHistoryOverride()) {
+    if (supportsAllOverrides()) {
       Object.defineProperties(element, {
         [attributeToMutate]: {
           get: () => {
